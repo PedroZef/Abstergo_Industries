@@ -12,7 +12,7 @@
 
 ## 🌟 Introdução
 
-Este relatório apresenta o processo de implementação de uma arquitetura **100% Serverless** na empresa **Abstergo Industries**  com mais de 03 ferramentas na AWS, realizado por **Pedro Zeferino da Silva**.  
+Este relatório apresenta o processo de implementação de uma arquitetura **100% Serverless** na empresa **Abstergo Industries** com mais de 03 ferramentas na AWS, realizado por **Pedro Zeferino da Silva**.  
 O objetivo foi utilizar **serviços gratuitos da AWS (Free Tier)** para construir uma base tecnológica moderna, segura e com custos dramaticamente reduzidos.
 
 A estratégia cobre:
@@ -23,7 +23,7 @@ A estratégia cobre:
 ✅ **Backend Serverless:** Execução de código sob demanda com AWS Lambda.  
 ✅ **APIs Gerenciadas:** Criação e exposição de APIs com Amazon API Gateway.  
 ✅ **Armazenamento de Objetos:** Storage seguro e durável com Amazon S3.  
-✅ **Monitoramento e Alertas de Custo:** Controle total com Amazon CloudWatch e AWS Budgets.  
+✅ **Monitoramento e Alertas de Custo:** Controle total com Amazon CloudWatch e AWS Budgets.
 
 O resultado é uma solução **sem custos iniciais**, que escala sob demanda e elimina a necessidade de gerenciar servidores.
 
@@ -267,64 +267,66 @@ As 7 etapas acima formam a base de uma aplicação serverless robusta e econômi
 
 ### 📉 Antes da Nuvem (Infra Local)
 
-| Categoria              | Custo Mensal |
-|------------------------|--------------|
-| Servidores e Licenças  | R$ 2.000     |
-| Manutenção e Energia   | R$ 2.300     |
-| Equipe de TI           | R$ 6.000     |
-| **Custo Mensal Total** | **~R$ 10.300**|
+| Categoria              | Custo Mensal   |
+| ---------------------- | -------------- |
+| Servidores e Licenças  | R$ 2.000       |
+| Manutenção e Energia   | R$ 2.300       |
+| Equipe de TI           | R$ 6.000       |
+| **Custo Mensal Total** | **~R$ 10.300** |
 
 ### 📈 Depois da Nuvem (AWS Serverless)
 
-| Categoria              | Custo Mensal (Dentro do Free Tier) |
-|------------------------|------------------------------------|
-| Infraestrutura (Serverless) | R$ 0                             |
-| Cognito                | ✅ Grátis                          |
-| DynamoDB               | ✅ Grátis                          |
-| Lambda                 | ✅ Grátis                          |
-| API Gateway            | ✅ Grátis                          |
-| S3                     | ✅ Grátis                          |
-| CloudWatch & Budgets   | ✅ Grátis                          |
-| Equipe de TI (Reduzida)| R$ 3.000                           |
-| **Custo Mensal Total** | **~R$ 3.000**                      |
+| Categoria                   | Custo Mensal (Dentro do Free Tier) |
+| --------------------------- | ---------------------------------- |
+| Infraestrutura (Serverless) | ✅ Grátis                          |
+| Cognito                     | ✅ Grátis                          |
+| DynamoDB                    | ✅ Grátis                          |
+| Lambda                      | ✅ Grátis                          |
+| IAM                         | ✅ Grátis                          |
+| API Gateway                 | ✅ Grátis                          |
+| S3                          | ✅ Grátis                          |
+| CloudWatch & Budgets        | ✅ Grátis                          |
+| Equipe de TI (Reduzida)     | R$ 3.000                           |
+| **Custo Mensal Total**      | **~R$ 3.000**                      |
 
-![Diagrama AWS](./assets/AWS_FREE_TIER.png)  
+![Diagrama AWS](./assets/AWS_FREE_TIER.png)
 
 ### 💡 Exemplo Prático: Custo para 1.000 Pedidos em uma Farmácia
 
 Neste modelo, utilizamos o Nível Gratuito (Free Tier) e o modelo "Pay-as-you-go". Você não paga por servidores ociosos, apenas por eventos (cliques, leituras no banco).
 
-| Ferramenta AWS          | Uso Estimado (Cenário 1k pedidos)         | Limite Gratuito (Free Tier)          | Custo Mensal (R$) |
-| ----------------------- | ----------------------------------------- | ------------------------------------ | ----------------- |
-| AWS Lambda (Computação) | ~20.000 invocações (navegação + compra)   | 1.000.000 de invocações/mês          | R$ 0,00           |
-| Amazon S3 (Site/Front)  | 2 GB de armazenamento + transferência     | 5 GB de armazenamento (12 meses)     | R$ 0,00           |
-| DynamoDB (Banco)        | Leitura/Escrita dos pedidos e produtos    | 25 GB de armazenamento + 200M reqs   | R$ 0,00           |
-| Amazon Cognito (Login)  | 2.000 usuários ativos                     | 50.000 usuários ativos/mês           | R$ 0,00           |
-| CloudFront (CDN)        | Transferência de dados do site            | 1 TB de transferência/mês            | R$ 0,00           |
-| Elastic Beanstalk       | Implantação automática aplicações web     | Instância EC2 (Free Tier)            | R$ 0,00 até 750h/mês|
-| Route 53 (DNS)          | Gerenciamento do domínio (Custo fixo AWS) | Não possui free tier perpétuo para zona | R$ 2,50        |
-| **CUSTO TOTAL**         | **Custo Variável**                        |                                      | **~R$ 2,50 / mês**|
+| Ferramenta AWS          | Uso Estimado (Cenário 1k pedidos)         | Limite Gratuito (Free Tier)        | Custo Mensal (R$)  |
+| ----------------------- | ----------------------------------------- | ---------------------------------- | ------------------ |
+| AWS Lambda (Computação) | ~20.000 invocações (navegação + compra)   | 1.000.000 de invocações/mês        | R$ 0,00            |
+| Amazon S3 (Site/Front)  | 2 GB de armazenamento + transferência     | 5 GB de armazenamento (12 meses)   | R$ 0,00            |
+| DynamoDB (Banco)        | Leitura/Escrita dos pedidos e produtos    | 25 GB de armazenamento + 200M reqs | R$ 0,00            |
+| Amazon Cognito (Login)  | 2.000 usuários ativos                     | 50.000 usuários ativos/mês         | R$ 0,00            |
+| CloudFront (CDN)        | Transferência de dados do site            | 1 TB de transferência/mês          | R$ 0,00            |
+| Elastic Beanstalk       | Implantação automática aplicações web     | Instância EC2 (Free Tier)          | R$ 0,00 750h/mês   |
+| Route 53 (DNS)          | Gerenciamento do domínio (Custo fixo AWS) | Não possui free tier para zona     | R$ 2,50            |
+| **CUSTO TOTAL**         | **Custo Variável**                        |                                    | **~R$ 2,50 / mês** |
 
 ![Arquitetura AWS](./assets/FREE_TIER_ARQ.png)
 
-*Se a farmácia não vender nada, o custo é praticamente zero. Se vender muito, o custo sobe linearmente, mas sempre proporcional ao lucro.*
+_Se a farmácia não vender nada, o custo é praticamente zero. Se vender muito, o custo sobe linearmente, mas sempre proporcional ao lucro._
 
 ---
 
 ## 📊 Escalabilidade para crescer (Pay-as-you-go)
 
-| Serviço AWS     | Free Tier (Mensal) | Custo Após o Limite (Aproximado) |
-|-----------------|--------------------|----------------------------------|
-| Cognito         | 50.000 MAUs        | US$ 0,0055 / MAU                 |
-| DynamoDB        | 25 GB              | US$ 0,25 / GB                    |
-| Lambda          | 1 milhão de exec.  | US$ 0,20 / milhão de exec.       |
-| API Gateway     | 1 milhão de cham.  | US$ 1,00 / milhão de cham.       |
-| S3 (Standard)   | 5 GB               | US$ 0,023 / GB                   |
-| CloudWatch      | 10 alarmes         | US$ 0,10 / alarme                |
+| Serviço AWS   | Free Tier (Mensal) | Custo Após o Limite (Aproximado) |
+| ------------- | ------------------ | -------------------------------- |
+| Cognito       | 50.000 MAUs        | US$ 0,0055 / MAU                 |
+| DynamoDB      | 25 GB              | US$ 0,25 / GB                    |
+| Lambda        | 1 milhão de exec.  | US$ 0,20 / milhão de exec.       |
+| API Gateway   | 1 milhão de cham.  | US$ 1,00 / milhão de cham.       |
+| S3 (Standard) | 5 GB               | US$ 0,023 / GB                   |
+| CloudWatch    | 10 alarmes         | US$ 0,10 / alarme                |
 
 ![AWS Menos Custos](./assets/AWS_MENOSCUStOS.png)
 
 ---
+
 ---
 
 ## ✅ Conclusão
@@ -335,7 +337,7 @@ A adoção de uma arquitetura **100% Serverless** na AWS oferece uma transforma�
 ✅ **Escalabilidade Infinita e Automática:** Do primeiro ao milionésimo usuário, a infraestrutura se ajusta sem intervenção.  
 ✅ **Segurança Robusta:** Com IAM e serviços gerenciados, a base de segurança é sólida.  
 ✅ **Zero Gestão de Servidores:** Fim da preocupação com atualizações, patches ou sistemas operacionais.  
-✅ **Foco no Produto:** A equipe de desenvolvimento pode se concentrar em criar valor para o negócio, não em manter a infraestrutura.  
+✅ **Foco no Produto:** A equipe de desenvolvimento pode se concentrar em criar valor para o negócio, não em manter a infraestrutura.
 
 Esta é a abordagem mais moderna e financeiramente inteligente para empresas que buscam crescimento ágil e sustentável.
 
@@ -343,25 +345,25 @@ Esta é a abordagem mais moderna e financeiramente inteligente para empresas que
 
 ## 🔗 Anexos — Links Oficiais da AWS
 
-🔗 **[AWS Free Tier](https://aws.amazon.com/pt/free/)**  
+🔗 **[AWS Free Tier](https://aws.amazon.com/pt/free/)**
 
-🔗 **[Amazon Cognito](https://aws.amazon.com/cognito/)**  
+🔗 **[Amazon Cognito](https://aws.amazon.com/cognito/)**
 
-🔗 **[AWS IAM](https://aws.amazon.com/iam/)**  
+🔗 **[AWS IAM](https://aws.amazon.com/iam/)**
 
-🔗 **[Amazon DynamoDB](https://aws.amazon.com/dynamodb/)**  
+🔗 **[Amazon DynamoDB](https://aws.amazon.com/dynamodb/)**
 
-🔗 **[AWS Lambda](https://aws.amazon.com/lambda/)**  
+🔗 **[AWS Lambda](https://aws.amazon.com/lambda/)**
 
-🔗 **[Amazon API Gateway](https://aws.amazon.com/api-gateway/)**  
+🔗 **[Amazon API Gateway](https://aws.amazon.com/api-gateway/)**
 
-🔗 **[Amazon S3](https://aws.amazon.com/s3/)**  
+🔗 **[Amazon S3](https://aws.amazon.com/s3/)**
 
-🔗 **[Amazon Elastic Beanstalk](<https://aws.amazon.com/pt/elasticbeanstalk/>)**
+🔗 **[Amazon Elastic Beanstalk](https://aws.amazon.com/pt/elasticbeanstalk/)**
 
-🔗 **[Amazon CloudWatch](https://aws.amazon.com/cloudwatch/)**  
+🔗 **[Amazon CloudWatch](https://aws.amazon.com/cloudwatch/)**
 
-🔗 **[AWS Budgets](https://aws.amazon.com/aws-cost-management/aws-budgets/)**  
+🔗 **[AWS Budgets](https://aws.amazon.com/aws-cost-management/aws-budgets/)**
 
 ---
 
