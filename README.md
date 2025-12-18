@@ -288,6 +288,8 @@ As 7 etapas acima formam a base de uma aplicação serverless robusta e econômi
 | Equipe de TI (Reduzida)| R$ 3.000                           |
 | **Custo Mensal Total** | **~R$ 3.000**                      |
 
+![Diagrama AWS](./assets/AWS_FREE_TIER.png)  
+
 ### 💡 Exemplo Prático: Custo para 1.000 Pedidos em uma Farmácia
 
 Neste modelo, utilizamos o Nível Gratuito (Free Tier) e o modelo "Pay-as-you-go". Você não paga por servidores ociosos, apenas por eventos (cliques, leituras no banco).
@@ -299,8 +301,11 @@ Neste modelo, utilizamos o Nível Gratuito (Free Tier) e o modelo "Pay-as-you-go
 | DynamoDB (Banco)        | Leitura/Escrita dos pedidos e produtos    | 25 GB de armazenamento + 200M reqs   | R$ 0,00           |
 | Amazon Cognito (Login)  | 2.000 usuários ativos                     | 50.000 usuários ativos/mês           | R$ 0,00           |
 | CloudFront (CDN)        | Transferência de dados do site            | 1 TB de transferência/mês            | R$ 0,00           |
-| Route 53 (DNS)          | Gerenciamento do domínio (Custo fixo AWS) | Não possui free tier perpétuo para zona | R$ 2,50           |
+| Elastic Beanstalk       | Implantação automática aplicações web     | Instância EC2 (Free Tier)            | R$ 0,00 até 750h/mês|
+| Route 53 (DNS)          | Gerenciamento do domínio (Custo fixo AWS) | Não possui free tier perpétuo para zona | R$ 2,50        |
 | **CUSTO TOTAL**         | **Custo Variável**                        |                                      | **~R$ 2,50 / mês**|
+
+![Arquitetura AWS](./assets/FREE_TIER_ARQ.png)
 
 *Se a farmácia não vender nada, o custo é praticamente zero. Se vender muito, o custo sobe linearmente, mas sempre proporcional ao lucro.*
 
@@ -317,6 +322,9 @@ Neste modelo, utilizamos o Nível Gratuito (Free Tier) e o modelo "Pay-as-you-go
 | S3 (Standard)   | 5 GB               | US$ 0,023 / GB                   |
 | CloudWatch      | 10 alarmes         | US$ 0,10 / alarme                |
 
+![AWS Menos Custos](./assets/AWS_MENOSCUStOS.png)
+
+---
 ---
 
 ## ✅ Conclusão
@@ -335,35 +343,28 @@ Esta é a abordagem mais moderna e financeiramente inteligente para empresas que
 
 ## 🔗 Anexos — Links Oficiais da AWS
 
-🔗 **AWS Free Tier**  
-<https://aws.amazon.com/free/>
+🔗 **[AWS Free Tier](https://aws.amazon.com/pt/free/)**  
 
-🔗 **Amazon Cognito**  
-<https://aws.amazon.com/cognito/>
+🔗 **[Amazon Cognito](https://aws.amazon.com/cognito/)**  
 
-🔗 **AWS IAM**  
-<https://aws.amazon.com/iam/>
+🔗 **[AWS IAM](https://aws.amazon.com/iam/)**  
 
-🔗 **Amazon DynamoDB**  
-<https://aws.amazon.com/dynamodb/>
+🔗 **[Amazon DynamoDB](https://aws.amazon.com/dynamodb/)**  
 
-🔗 **AWS Lambda**  
-<https://aws.amazon.com/lambda/>
+🔗 **[AWS Lambda](https://aws.amazon.com/lambda/)**  
 
-🔗 **Amazon API Gateway**  
-<https://aws.amazon.com/api-gateway/>
+🔗 **[Amazon API Gateway](https://aws.amazon.com/api-gateway/)**  
 
-🔗 **Amazon S3**  
-<https://aws.amazon.com/s3/>
+🔗 **[Amazon S3](https://aws.amazon.com/s3/)**  
 
-🔗 **Amazon CloudWatch**  
-<https://aws.amazon.com/cloudwatch/>
+🔗 **[Amazon Elastic Beanstalk](<https://aws.amazon.com/pt/elasticbeanstalk/>)**
 
-🔗 **AWS Budgets**  
-<https://aws.amazon.com/aws-cost-management/aws-budgets/>
+🔗 **[Amazon CloudWatch](https://aws.amazon.com/cloudwatch/)**  
+
+🔗 **[AWS Budgets](https://aws.amazon.com/aws-cost-management/aws-budgets/)**  
 
 ---
 
 ✍️ **Assinatura do Responsável pelo Projeto:**  
-👨‍💼[!Pedro Zeferino da Silva](./assets/avatar.jpg)
-📅 **Data Final:** 17/12/2025
+👨‍💼![Pedro Zeferino da Silva](./assets/avatar.jpg)
+📅 **Data Final:** 18/12/2025
